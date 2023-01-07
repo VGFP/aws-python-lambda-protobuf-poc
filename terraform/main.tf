@@ -1,5 +1,3 @@
-# create terraform files for python lambda with code in folder path `python/get_protobuf_data/get_protobuf_data.py` python 3.9 architectures arm64, create required IAM resources and create api gateway with name `protobufAPI` and connect GET to lambda 
-
 terraform {
   required_providers {
     aws = {
