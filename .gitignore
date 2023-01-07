@@ -1,0 +1,20 @@
+# Ignore Terraform output files
+*.tfstate
+*.tfstate.backup
+
+# Ignore Python bytecode files
+*.pyc
+
+# Ignore pip cache directory
+.cache/
+
+# Ignore Terraform .terraform directory
+.terraform/
+.terraform.lock.hcl
+
+venv
+google
+.python
+protobuf-4.21.12.dist-info
+__pycache__
+.DS_Store

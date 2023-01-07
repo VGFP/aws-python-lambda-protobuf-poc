@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message MyMessage {
+  string id = 1;
+  string val1 = 2;
+  int32 val2 = 3;
+  double val3 = 4;
+  bool val4 = 5;
+}
