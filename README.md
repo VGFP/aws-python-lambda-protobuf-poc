@@ -24,7 +24,7 @@ Project was created using terraform
 
 - Install python dependencies
 ```bash
-  pip install -r requirements.txt --target ./python/get_protobuf_data
+  pip install -r requirements.txt --target ./terraform/python/get_protobuf_data
   ```
 
 - Deploy lambdas
