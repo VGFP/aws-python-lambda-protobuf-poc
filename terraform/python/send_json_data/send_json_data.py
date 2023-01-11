@@ -8,7 +8,6 @@ def lambda_handler(event, context):
     queue_url = os.environ["JSON_QUEUE_URL"]
     sqs_client.send_message(
         QueueUrl=queue_url,
-        MessageBody=json.dumps({"id": "123", "val1": "abc", "val2": 123, "val3": 1.116456456, "val4": False})
+        MessageBody=json.dumps({"id": "123", "val1": "abc", "val2": 123, "val3": 1.116456456, "val4": False}),
     )
     return {"statusCode": 200}
-    

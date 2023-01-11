@@ -12,7 +12,6 @@ provider "aws" {
   region = "eu-north-1"
 }
 
-# create a sqs queue named "protobuf-data-queue"
 resource "aws_sqs_queue" "protobuf_data_queue" {
   name = "protobuf-data-queue"
 }
@@ -131,8 +130,6 @@ resource "aws_iam_role" "lambda_role" {
     }
   EOF
 }
-
-# add attached policy to the role with arn 'arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole'
 
 resource "aws_iam_role_policy_attachment" "sqs_lambda_role_policy_attachment" {
   role       = aws_iam_role.lambda_role.name
