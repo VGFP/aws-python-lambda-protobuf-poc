@@ -7,6 +7,8 @@ Project was created using terraform
 ## Description
 AWS Python lambda is transforming JSON encoded event to python variable. So using Protocol Buffers is not needed. But SQS MessageBody is a String so Protocol Buffers can be used to improve data serialization and deserialization (more info: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html). This project is using Protocol Buffers to send data from lambda to lambda using SQS. 
 
+From testing bouth methods have similar execution time around 1ms. But more complex data structures can be more efficient with Protocol Buffers (needs more testing).
+
 ## Prerequisites
 
 - Terraform with aws credentials
