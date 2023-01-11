@@ -16,7 +16,3 @@ def lambda_handler(event, context):
         QueueUrl=queue_url,
         MessageBody=base64.b64encode(obj.SerializeToString()).decode()
     )
-
-
-if __name__ == "__main__":
-    lambda_handler(None, None)
