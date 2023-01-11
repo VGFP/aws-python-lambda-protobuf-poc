@@ -8,8 +8,8 @@ import codecs
 def test_protobuf_decode(event: dict) -> None:
     obj = message_pb2.MyMessage()
     obj.ParseFromString(base64.b64decode(event["body"]))
-    # for key, value in obj.ListFields():
-    #     print(key.name, value)
+    # for name in obj.DESCRIPTOR.fields_by_name:
+    #     print(f"{name}: {getattr(obj, name)}")
 
 
 def test_json_decode(event: dict) -> None:
@@ -112,3 +112,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
