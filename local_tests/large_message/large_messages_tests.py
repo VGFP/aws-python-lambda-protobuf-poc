@@ -54,8 +54,9 @@ def get_protobuf() -> large_message_pb2.SomeMessage:
 
 
 def print_protobuf(protobuf_obj: large_message_pb2.SomeMessage) -> None:
-    for name in protobuf_obj.DESCRIPTOR.fields_by_name:
-        print(f"{name}: {getattr(protobuf_obj, name)}")
+    print(protobuf_obj.data[0])
+    print("Meta: {" + f"\n  Limit: {protobuf_obj.meta.paging.limit}")
+    print(f"  Offset: {protobuf_obj.meta.paging.offset}" + "\n}")
 
 
 def get_json() -> str:
@@ -162,12 +163,12 @@ def test_protobuf() -> dict:
 
 
 def main():
-    json_res = test_json()
-    protobuf_res = test_protobuf()
-    print(f"encoding diff: {json_res['encode_json'] - protobuf_res['encode_protobuf']}")
-    print(f"encoding protobuf / json: {protobuf_res['encode_protobuf'] / json_res['encode_json']}")
-    print(f"decoding diff: {json_res['decode_json'] - protobuf_res['decode_protobuf']}")
-    print(f"decoding protobuf / json: {protobuf_res['decode_protobuf'] / json_res['decode_json']}")
+    # json_res = test_json()
+    # protobuf_res = test_protobuf()
+    # print(f"encoding diff: {json_res['encode_json'] - protobuf_res['encode_protobuf']}")
+    # print(f"encoding protobuf / json: {protobuf_res['encode_protobuf'] / json_res['encode_json']}")
+    # print(f"decoding diff: {json_res['decode_json'] - protobuf_res['decode_protobuf']}")
+    # print(f"decoding protobuf / json: {protobuf_res['decode_protobuf'] / json_res['decode_json']}")
 
     protobuf_obj = get_protobuf()
     print_protobuf(protobuf_obj=protobuf_obj)
