@@ -68,6 +68,7 @@ def decode_test():
     print("Protobuf time: ", protobuf_time_diff)
     print("JSON time: ", json_time_diff)
     print(f"Diff proto - json: {protobuf_time_diff - json_time_diff}")
+    print(f"Diff decode proto / json: {protobuf_time_diff / json_time_diff}")
 
 
 def encode_test():
@@ -89,6 +90,7 @@ def encode_test():
     print("Encode Protobuf time: ", protobuf_time_diff)
     print("Encode JSON time: ", json_time_diff)
     print(f"Encode Diff proto - json: {protobuf_time_diff - json_time_diff}")
+    print(f"Encode Diff proto / json: {protobuf_time_diff / json_time_diff}")
 
 
 def test_protobuf_encode(obj: dict) -> None:

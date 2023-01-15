@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+message SomeMessage {
+
+    message Previews {
+        string url = 1;
+    }
+
+    message Artwork {
+        uint32 width = 1;
+        uint32 height = 2;
+        string url = 3;
+        string bgColor = 4;
+        string textColor1 = 5;
+        string textColor2 = 6;
+        string textColor3 = 7;
+        string textColor4 = 8;
+    }
+
+    message Attributes {
+        repeated Previews previews = 1;
+        Artwork artwork = 2;
+        string artistName = 3;
+        string name = 4;
+        string albumName = 5;
+        uint32 trackNumber = 6;
+        repeated string genreNames = 7;
+        uint32 durationInMillis = 8;
+        string releaseDate = 9;
+        string isrc = 10;
+        string contentRating = 11;
+    }
+
+    message Data {
+        string id = 1;
+        string type = 2;
+        string href = 3;
+        Attributes attributes = 4;
+    }
+
+    message Paging {
+        uint32 limit = 1;
+        uint32 offset = 2;
+    }
+
+    message Meta {
+        Paging paging = 1;
+    }
+
+    repeated Data data = 1;
+    Meta meta = 2;
+}
