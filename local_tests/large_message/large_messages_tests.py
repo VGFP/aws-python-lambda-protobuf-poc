@@ -163,18 +163,18 @@ def test_protobuf() -> dict:
 
 
 def main():
-    # json_res = test_json()
-    # protobuf_res = test_protobuf()
-    # print(f"encoding diff: {json_res['encode_json'] - protobuf_res['encode_protobuf']}")
-    # print(f"encoding protobuf / json: {protobuf_res['encode_protobuf'] / json_res['encode_json']}")
-    # print(f"decoding diff: {json_res['decode_json'] - protobuf_res['decode_protobuf']}")
-    # print(f"decoding protobuf / json: {protobuf_res['decode_protobuf'] / json_res['decode_json']}")
+    json_res = test_json()
+    protobuf_res = test_protobuf()
+    print(f"encoding diff: {json_res['encode_json'] - protobuf_res['encode_protobuf']}")
+    print(f"encoding protobuf / json: {protobuf_res['encode_protobuf'] / json_res['encode_json']}")
+    print(f"decoding diff: {json_res['decode_json'] - protobuf_res['decode_protobuf']}")
+    print(f"decoding protobuf / json: {protobuf_res['decode_protobuf'] / json_res['decode_json']}")
 
-    protobuf_obj = get_protobuf()
-    print_protobuf(protobuf_obj=protobuf_obj)
+    # protobuf_obj = get_protobuf()
+    # print_protobuf(protobuf_obj=protobuf_obj)
 
-    json_str = get_json()
-    print_json(json_str=json_str)
+    # json_str = get_json()
+    # print_json(json_str=json_str)
 
 
 if __name__ == "__main__":

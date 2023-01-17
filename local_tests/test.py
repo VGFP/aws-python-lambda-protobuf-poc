@@ -65,10 +65,10 @@ def decode_test():
 
     protobuf_time_diff = protobuf_time_end - protobuf_time_start
 
-    print("Protobuf time: ", protobuf_time_diff)
-    print("JSON time: ", json_time_diff)
-    print(f"Diff proto - json: {protobuf_time_diff - json_time_diff}")
-    print(f"Diff decode proto / json: {protobuf_time_diff / json_time_diff}")
+    print("Decode Protobuf time: ", protobuf_time_diff)
+    print("Decode JSON time: ", json_time_diff)
+    print(f"Decode Diff proto - json: {protobuf_time_diff - json_time_diff}")
+    print(f"Decode Diff decode proto / json: {protobuf_time_diff / json_time_diff}")
 
 
 def encode_test():
