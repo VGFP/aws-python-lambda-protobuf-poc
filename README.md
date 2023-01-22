@@ -38,7 +38,7 @@ From testing both methods have similar execution time around 1ms. But more compl
   terraform apply
   ```
 
-## AWS Preformance testing table
+## AWS Preformance testing
 Preformance from AWS testing for small and large data structures. I run request for both JSON and Protocol Buffers on my personal aws account. Here are results for small massage (main branch) and large massage (large-message-almbda-sqs-test branch).
 
 > I did not run this test a lot of times (due to monetary costs) so your results can be a bit different. But I think it is enough to show the difference between JSON and Protocol Buffers.
@@ -71,7 +71,7 @@ Lambdas settings:
 * Sending lambdas take more time to execute than getting lambdas. Difference is most likely because of *'cold start'* of SQS. If you run this test multiple times you will see that sending lambdas will be faster (around 204ms for protobuf and 250ms for json in billed time for small mesages). 
 * For large messages Protocol Buffers is better than JSON. Implementing it in your project for messaging systems that require text data like SQS will improve execution time and reduce costs.
 
-## Local preformance testing table
+## Local preformance testing
 Preformance from local testing for small and large data structures. These are not 'scientific' tests. Just to get a feeling about a difference between JSON and Protocol Buffers decoding and encoding. Devices used: M1 Mac and Orange Pi Zero 2.
 
 Large message (1M requests)
