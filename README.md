@@ -68,7 +68,7 @@ Lambdas settings:
 ### Results analysis
 * For smaller messages there is no significant difference between JSON and Protocol Buffers. Duration in protobuf is a bit better (lower) but it is not significant.
 * Cold start will be a bit longer for Protocol Buffers because of additional dependencies. But for lambdas running constantly it is not a problem.
-* For sending lambdas takes a lot of time more than for getting the data. Difference is most likely because of *'cold start'* of SQS. If you run this test multiple times you will see that sending lambdas will be faster (around 204ms for protobuf and 250ms for json in billed time for small mesages). 
+* Sending lambdas take more time to execute than getting lambdas. Difference is most likely because of *'cold start'* of SQS. If you run this test multiple times you will see that sending lambdas will be faster (around 204ms for protobuf and 250ms for json in billed time for small mesages). 
 * For large messages Protocol Buffers is better than JSON. Implementing it in your project for messaging systems that require text data like SQS will improve execution time and reduce costs.
 
 ## Local preformance testing table
