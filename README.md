@@ -38,7 +38,32 @@ From testing bouth methods have similar execution time around 1ms. But more comp
   terraform apply
   ```
 
-## Preformance testing table
+## AWS Preformance testing table
+Preformance from AWS testing for small and large data structures. I run request for both JSON and Protocol Buffers on my personal aws account. Here are results for small massage (main branch) and large massage (large-message-almbda-sqs-test branch).
+
+Lambdas settings:
+- Region: eu-north-1
+- Python version: 3.9
+- Architecture: ARM64
+- Memory: 128 MB
+
+### Small message (main branch)
+| Lambda | Duration [ms] | Billed Duration [ms] | Max Memory Used [MB] | Init Duration [ms] |
+| --- | --- | --- | --- | --- |
+| get_protobuf_data | 1.17 | 2 | 44 | 205.79 |
+| send_protobuf_data | 959.46 | 960 | 69 | 323.21 |
+| get_json_data | 14.87 | 15 | 36 | 95.36 |
+| send_json_data | 1079.35 | 1080 | 64 | 219.34 |
+
+### Large message (large-message-almbda-sqs-test branch)
+| Lambda | Duration [ms] | Billed Duration [ms] | Max Memory Used [MB] | Init Duration [ms] |
+| --- | --- | --- | --- | --- |
+| get_protobuf_data | 1.17 | 2 | 44 | 205.79 |
+| send_protobuf_data | 959.46 | 960 | 69 | 323.21 |
+| get_json_data | 14.87 | 15 | 36 | 95.36 |
+| send_json_data | 1079.35 | 1080 | 64 | 219.34 |
+
+## Local preformance testing table
 Preformance from local testing for small and large data structures. These are not 'scientific' tests. Just to get a feeling about a difference between JSON and Protocol Buffers decoding and encoding. Devices used M1 Mac and Orange Pi Zero 2.
 
 Large message (1M requests)
@@ -52,3 +77,4 @@ Small message (1M requests)
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 8 Core (4 preformance and 4 efficiency) ARM64  | 3.11.1 | 1.389113187789917 | 0.7344670295715332 | 0.528730873788674 | 1.161815881729126 | 0.5950100421905518 | 0.5121379829177414 |
 | 4 Core (4 efficiency) ARM64 | 3.11.0rc1 | 34.81385159492493 | 14.071361780166626 | 0.4041885955019672 | 28.355868339538574 | 14.50603437423706 | 0.5115708043407113 |
+
