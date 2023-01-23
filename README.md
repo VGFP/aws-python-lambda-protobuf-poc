@@ -59,15 +59,24 @@ Lambdas settings:
 | Lambda | Duration [ms] | Billed Duration [ms] | Max Memory Used [MB] | Init Duration [ms] |
 | --- | --- | --- | --- | --- |
 | get_protobuf_data | 1.17 | 2 | 44 | 205.79 |
-| get_json_data | 14.87 | 15 | 36 | 95.36 |
+| get_json_data | 1.36 | 2 | 35 | 94.13 |
 | send_protobuf_data | 959.46 | 960 | 69 | 323.21 |
 | send_json_data | 1079.35 | 1080 | 64 | 219.34 |
 
+*Previous results for get_json_data was a outlier. I am testing it again and I can not reproduce it. So I am not sure what was the problem. But I think it is not important for this test.*
+
+#### Large message (large-message-almbda-sqs-test branch) size difference
+
+| Protocol | Size [bytes] |
+| --- | --- |
+| JSON | 902 |
+| Protocol Buffers | 681 |
+
 ### Results analysis
-* For smaller messages there is no significant difference between JSON and Protocol Buffers. Duration in protobuf is a bit better (lower) but it is not significant.
+* For smaller messages there is small difference between JSON and Protocol Buffers. Duration in protobuf is a bit better (lower) but for small amount of requests it is not significant.
 * Cold start will be a bit longer for Protocol Buffers because of additional dependencies. But for lambdas running constantly it is not a problem.
 * Sending lambdas take more time to execute than getting lambdas. Difference is most likely because of *'cold start'* of SQS. If you run this test multiple times you will see that sending lambdas will be faster (around 204ms for protobuf and 250ms for json in billed time for small mesages). 
-* For large messages Protocol Buffers is better than JSON. Implementing it in your project for messaging systems that require text data like SQS will improve execution time and reduce costs.
+* For large messages Protocol Buffers is better than JSON it reduces execution time ~15-20% and message size by ~25%. Implementing it in your project for messaging systems that require text data like SQS will improve execution time and reduce costs.
 
 ## Local preformance testing
 Preformance from local testing for small and large data structures. These are not 'scientific' tests. Just to get a feeling about a difference between JSON and Protocol Buffers decoding and encoding. Devices used: M1 Mac and Orange Pi Zero 2.
