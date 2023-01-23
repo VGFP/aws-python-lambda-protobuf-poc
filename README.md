@@ -37,7 +37,7 @@ AWS Python lambda is transforming JSON encoded event to python variable at runti
   ```
 
 ## AWS Preformance testing
-Preformance from AWS testing for small and large data structures. I run request for both JSON and Protocol Buffers on my personal aws account. Here are results for small massage (main branch) and large massage (large-message-almbda-sqs-test branch).
+Preformance from AWS testing for small and large data structures. I run request for both JSON and Protocol Buffers on my personal aws account. Here are results for small massage (main branch) and large massage (large-message-lambda-sqs-test branch).
 
 > I did not run this test a lot of times (due to monetary costs) so your results can be a bit different. But I think it is enough to show the difference between JSON and Protocol Buffers.
 
@@ -51,16 +51,16 @@ Lambdas settings:
 | Lambda | Duration [ms] | Billed Duration [ms] | Max Memory Used [MB] | Init Duration [ms] |
 | --- | --- | --- | --- | --- |
 | get_protobuf_data | 1.08 | 2 | 44 | 203.94 |
-| send_protobuf_data | 951.89 | 952 | 69 | 322.5 |
 | get_json_data | 1.17 | 2 | 35 | 91.94 |
+| send_protobuf_data | 951.89 | 952 | 69 | 322.5 |
 | send_json_data | 992.33 | 993 | 64 | 214.27 |
 
 ### Large message (large-message-almbda-sqs-test branch)
 | Lambda | Duration [ms] | Billed Duration [ms] | Max Memory Used [MB] | Init Duration [ms] |
 | --- | --- | --- | --- | --- |
 | get_protobuf_data | 1.17 | 2 | 44 | 205.79 |
-| send_protobuf_data | 959.46 | 960 | 69 | 323.21 |
 | get_json_data | 14.87 | 15 | 36 | 95.36 |
+| send_protobuf_data | 959.46 | 960 | 69 | 323.21 |
 | send_json_data | 1079.35 | 1080 | 64 | 219.34 |
 
 ### Results analysis
